@@ -1,7 +1,13 @@
 pipeline {
 
-  agent any
-
+pipeline {
+  agent {
+    kubernetes {
+      	cloud 'kubernetes'
+      	label 'default'
+      	defaultContainer 'jnlp'
+      }
+    }
   stages {
 
     stage('Checkout Source') {
